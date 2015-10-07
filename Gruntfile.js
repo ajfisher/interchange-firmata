@@ -1,18 +1,6 @@
 var arduino = process.env.ARDUINO_PATH;
 
-var boards = {
-    "uno" :{
-        package: "arduino:avr:uno",
-    },
-    "nano": {
-        cpu: "atmega328",
-        package: "arduino:avr:nano:cpu=atmega328",
-    },
-    "promini": {
-        cpu: "16MHzatmega328",
-        package: "arduino:avr:pro:cpu=16MHzatmega328",
-    },
-};
+var boards = require("./libs/boards.js");
 
 module.exports = function(grunt) {
  

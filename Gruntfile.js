@@ -18,16 +18,7 @@ module.exports = function(grunt) {
  
     // configure the tasks
     grunt.initConfig({
-        exec: {
-            compile_firmata_uno: {
-                command:function() {
-                    
-                    return arduino + " --verify --verbose-build --board "  + boards["uno"].package + 
-                    " --pref build.path=bin/" + "uno" +  " build/StandardFirmata/StandardFirmata.ino";
-                },
-            },
-        },
-
+        // exec: is available via dynamic task allocation see task rego at end.
         copy: {
             options: {
                 timestamp: true,
@@ -83,7 +74,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-nodeunit');
     grunt.loadNpmTasks('grunt-string-replace');
 
-/**    // dynamically create the compile targets for the various boards
+    // dynamically create the compile targets for the various boards
     Object.keys(boards).forEach(function(key) {
         grunt.config(["exec", key], {
             command:function() {
@@ -91,9 +82,9 @@ module.exports = function(grunt) {
                 " --pref build.path=bin/" + key +  " build/StandardFirmata/StandardFirmata.ino";
             },
         });
-    }); **/
+    });
 
     grunt.registerTask('test', ['nodeunit:all']);
     grunt.registerTask('build', ['clean', 'copy', 'string-replace']);
-/**    grunt.registerTask('compile', ['build', 'exec'])**/
+    grunt.registerTask('compile', ['build', 'exec']);
 };

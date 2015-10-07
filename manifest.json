@@ -1,0 +1,6 @@
+{
+    "firmata": {
+        "bins": "bin",
+        "hexPath": "/StandardFirmata.ino.hex"
+    }
+}

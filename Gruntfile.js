@@ -19,11 +19,11 @@ module.exports = function(grunt) {
     // configure the tasks
     grunt.initConfig({
         exec: {
-            compile_firmata: {
-                cwd: "bin/",
-                command:function(board) {
-                    return arduino + " --verify --verbose-build --board "  + boards[board].package + 
-                    " --pref build.path=bin/" + board +  " build/hcsr04_firmata/hcsr04_firmata.ino";
+            compile_firmata_uno: {
+                command:function() {
+                    
+                    return arduino + " --verify --verbose-build --board "  + boards["uno"].package + 
+                    " --pref build.path=bin/" + "uno" +  " build/StandardFirmata/StandardFirmata.ino";
                 },
             },
         },
@@ -45,13 +45,27 @@ module.exports = function(grunt) {
         clean: {
             firmware_build: {
                 src: [  
-                        'build/**',
+                        'build/*',
                      ]
             },
             compiled_bins: {
                 src: [
-                        'bin/**',
+                        'bin/*',
                     ]
+            },
+        },
+        'string-replace': {
+            precompile: {
+                files: [{
+                    src: 'build/StandardFirmata/StandardFirmata.ino',
+                    dest: 'build/StandardFirmata/StandardFirmata.ino',
+                    }],
+                options: {
+                    replacements: [{
+                        pattern: /<Firmata\.h>/,
+                        replacement: '"Firmata.h"',
+                    }],
+                },
             },
         },
         nodeunit: {
@@ -67,8 +81,19 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-contrib-nodeunit');
+    grunt.loadNpmTasks('grunt-string-replace');
+
+/**    // dynamically create the compile targets for the various boards
+    Object.keys(boards).forEach(function(key) {
+        grunt.config(["exec", key], {
+            command:function() {
+                return arduino + " --verify --verbose-build --board "  + boards[key].package + 
+                " --pref build.path=bin/" + key +  " build/StandardFirmata/StandardFirmata.ino";
+            },
+        });
+    }); **/
 
     grunt.registerTask('test', ['nodeunit:all']);
-    grunt.registerTask('build', ['clean', 'copy']);
-    grunt.registerTask('compile', ['build', 'exec:compile_firmata:uno', 'exec:compile_firmata:nano', 'exec:compile_firmata:promini' ]);
+    grunt.registerTask('build', ['clean', 'copy', 'string-replace']);
+/**    grunt.registerTask('compile', ['build', 'exec'])**/
 };

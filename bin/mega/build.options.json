@@ -1,0 +1,9 @@
+{
+  "customBuildProperties": "build.path=bin/mega,build.warn_data_percentage=75",
+  "fqbn": "arduino:avr:mega:cpu=atmega2560",
+  "hardwareFolders": "/Users/ajfisher/Downloads/NArduino.app/Contents/Java/hardware",
+  "librariesFolders": "/Users/ajfisher/Documents/Arduino/libraries,/Users/ajfisher/Downloads/NArduino.app/Contents/Java/libraries,/Users/ajfisher/Downloads/NArduino.app/Contents/Java/hardware/arduino/avr/libraries",
+  "runtime.ide.version": "10606",
+  "sketchLocation": "/Users/ajfisher/dev/interchange-firmata/build/StandardFirmata/StandardFirmata.ino",
+  "toolsFolders": "/Users/ajfisher/Downloads/NArduino.app/Contents/Java/tools-builder,/Users/ajfisher/Downloads/NArduino.app/Contents/Java/hardware/tools/avr"
+}

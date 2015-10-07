@@ -2,6 +2,11 @@
 
 ## Pre release versions
 
+## 0.2.0
+
+* Added manifests for consumption by interchange
+* Added builds for the common boards
+
 ### 0.1.1
 
 * Move boards support to `libs/boards.js` to make more reusable if needed

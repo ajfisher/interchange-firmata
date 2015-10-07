@@ -6,7 +6,7 @@ module.exports = function(grunt) {
  
     // configure the tasks
     grunt.initConfig({
-        // exec: is available via dynamic task allocation see task rego at end.
+        // exec: is available via dynamic tasks see task rego at end.
         copy: {
             options: {
                 timestamp: true,

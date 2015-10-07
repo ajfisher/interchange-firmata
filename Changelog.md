@@ -5,6 +5,7 @@
 ### 0.1.1
 
 * Move boards support to `libs/boards.js` to make more reusable if needed
+* Added numerous core boards for general support.
 
 ## 0.1.0
 

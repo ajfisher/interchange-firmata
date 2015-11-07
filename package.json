@@ -1,6 +1,6 @@
 {
   "name": "interchange-firmata",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Build precompiled hex files for numerous target boards for use in interchange",
   "main": "index.js",
   "scripts": {

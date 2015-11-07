@@ -11,7 +11,7 @@ module.exports = {
         cpu: "atmega328",
         package: "arduino:avr:nano:cpu=atmega328",
     },
-    "promini": {
+    "pro-mini": {
         cpu: "16MHzatmega328",
         package: "arduino:avr:pro:cpu=16MHzatmega328",
     },
@@ -27,6 +27,4 @@ module.exports = {
     "micro": {
         package: "arduino:avr:micro",
     },
-
-
 };

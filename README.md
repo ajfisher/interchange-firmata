@@ -1,5 +1,9 @@
 # Interchange Firmata
 
+[![Join the chat at https://gitter.im/ajfisher/nodebots-interchange](https://img.shields.io/badge/Gitter-Join%20Chat-brightgreen.svg)](https://gitter.im/ajfisher/nodebots-interchange?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+![](https://img.shields.io/badge/status-Ready-green.svg)
+![](https://img.shields.io/github/issues/ajfisher/interchange-firmata.svg)
+
 This project creates precompiled hex files of StandardFirmata so that they can
 be used by any project that needs them to be loaded automatically such as by 
 ChromeBots, Interchange or avrgirl. They will be periodically updated as required
@@ -9,11 +13,11 @@ provide.
 ## Installation
 
 Generally if you need to use interchange firmata you're best off using it from
-one of the downstream tools such as interchange. Installing standard firmata
-on your board is as simple as:
+one of the downstream tools such as [interchange](https://github.com/ajfisher/nodebots-interchange). 
+Installing standard firmata on your board is as simple as:
 
 ```
-interchange install firmata -a [boardtype] -p [port]
+interchange install StandardFirmata -a [boardtype] -p [port]
 ```
 
 That instruction will consume this repo as required and pull it down.
@@ -35,7 +39,7 @@ npm install
 
 This will pull in the relevant latest version of arduino firmata to the project.
 
-Other dependencies include at least version 1.6.6 of the arduino in order to 
+Other dependencies include at least version 1.6.6 of arduino in order to 
 build the hex files.
 
 ### Building hex files
@@ -51,7 +55,3 @@ grunt compile
 ```
 
 the clean, build, compile process should then unfold.
-
-
-
-

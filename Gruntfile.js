@@ -1,6 +1,7 @@
 var arduino = process.env.ARDUINO_PATH;
 
 var boards = require("./libs/boards.js");
+var boardlist = Object.keys(boards).toString();
 
 module.exports = function(grunt) {
  
@@ -31,6 +32,11 @@ module.exports = function(grunt) {
                 src: [
                         'bin/*',
                     ]
+            },
+            post_compile: {
+                src: [
+                        'bin/{' + boardlist + '}/!(*ino.hex)'
+                ]
             },
         },
         'string-replace': {
@@ -73,6 +79,6 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('test', ['nodeunit:all']);
-    grunt.registerTask('build', ['clean', 'copy', 'string-replace']);
-    grunt.registerTask('compile', ['build', 'exec']);
+    grunt.registerTask('build', ['clean:firmware_build', 'clean:compiled_bins', 'copy', 'string-replace']);
+    grunt.registerTask('compile', ['build', 'exec', 'clean:post_compile']);
 };

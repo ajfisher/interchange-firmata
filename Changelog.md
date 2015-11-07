@@ -2,6 +2,13 @@
 
 ## Pre release versions
 
+### 0.2.1
+
+* Removed cruft from the build process.
+* Fixed `pro-mini` support to be in line with avrgirl.
+* Moved dependencies to be devDependencies to stop it installing in interchange
+* Fixed install instructions
+
 ## 0.2.0
 
 * Added manifests for consumption by interchange

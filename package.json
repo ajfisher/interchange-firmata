@@ -23,7 +23,7 @@
     "url": "https://github.com/ajfisher/interchange-firmata/issues"
   },
   "homepage": "https://github.com/ajfisher/interchange-firmata#readme",
-  "dependencies": {
+  "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.6.0",

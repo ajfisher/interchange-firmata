@@ -4,7 +4,7 @@ var boards = require("./libs/boards.js");
 var boardlist = Object.keys(boards).toString();
 
 module.exports = function(grunt) {
- 
+
     // configure the tasks
     grunt.initConfig({
         // exec: is available via dynamic tasks see task rego at end.
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         },
         clean: {
             firmware_build: {
-                src: [  
+                src: [
                         'build/*',
                      ]
             },
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
             },
         },
     });
- 
+
     // load the tasks
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
     Object.keys(boards).forEach(function(key) {
         grunt.config(["exec", key], {
             command:function() {
-                return arduino + " --verify --verbose-build --board "  + boards[key].package + 
+                return arduino + " --verify --verbose-build --board "  + boards[key].package +
                 " --pref build.path=bin/" + key +  " build/StandardFirmata/StandardFirmata.ino";
             },
         });

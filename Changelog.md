@@ -2,6 +2,12 @@
 
 ## Pre release versions
 
+### 0.3.0
+
+* Brought in upstream firmata changes to bump to 2.5.3
+* New builds based on upstream firmata mods
+* File clean ups across the board
+
 ### 0.2.1
 
 * Removed cruft from the build process.
